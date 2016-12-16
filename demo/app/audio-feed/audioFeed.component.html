@@ -1,4 +1,4 @@
-<div id="audio-feed" class="wrapper audio-feed" *ngIf="!edit">
+<div id="audio-feed" class="wrapper audio-feed" *ngIf="!item.edit">
   <div id="scroller-audio-feed" class="scroller">
   <div class="scoller-wrapper" *ngFor="let utterance of audioFeed">
     <div class="item-container utterance">
@@ -30,8 +30,4 @@
 </div>
 </div>
 
-<div *ngIf="edit" class="edit audio-feed">
-  <div class="button settings" (click)="copy(item)">
-    <span class="button-text">Duplicate</span>
-  </div>
-</div>
+<app-settings *ngIf="item.edit" [item]="item" [size]="size" [gridItems]="gridItems"></app-settings>

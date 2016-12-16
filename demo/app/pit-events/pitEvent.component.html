@@ -1,5 +1,5 @@
-<div id="pit-events" class="wrapper" *ngIf="!edit">
-  <div id="scroller-pit-events" class="scroller">
+<div class="wrapper" *ngIf="!item.edit">
+  <div class="scroller">
   <div class="scoller-wrapper" *ngFor="let event of pitEvents">
     <div class="item-container event">
       <div class="row">
@@ -21,8 +21,4 @@
 </div>
 </div>
 
-<div *ngIf="edit" class="edit pit-events">
-  <div class="button settings" (click)="copy(item)">
-    <span class="button-text">Duplicate</span>
-  </div>
-</div>
+<app-settings *ngIf="item.edit" [item]="item" [size]="size" [gridItems]="gridItems"></app-settings>

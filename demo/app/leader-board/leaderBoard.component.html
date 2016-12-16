@@ -1,5 +1,5 @@
-<div *ngIf="!edit" class="wrapper" id="leader-board">
-  <div class="scroller" id="scroller">
+<div *ngIf="!item.edit" class="wrapper">
+  <div class="scroller">
     <table>
       <tr>
         <th>Pos.</th>
@@ -15,8 +15,4 @@
   </div>
 </div>
 
-<div *ngIf="edit" class="edit leader-board">
-  <div class="button settings" (click)="copy(item)">
-    <span class="button-text">Duplicate</span>
-  </div>
-</div>
+<app-settings *ngIf="item.edit" [item]="item" [size]="size" [gridItems]="gridItems"></app-settings>

@@ -1,6 +1,6 @@
-<div *ngIf="!edit" class="scoller-wrapper">
-  <div id="car-summary" class="item-container wrapper">
-    <div id="scroller-summary" class="shadow scroller">
+<div *ngIf="!item.edit" class="scoller-wrapper">
+  <div class="item-container wrapper">
+    <div class="shadow scroller">
       <table>
         <thead class="table-head">
           <tr class="table-row">
@@ -17,8 +17,4 @@
   </div>
 </div>
 
-<div *ngIf="edit" class="edit car-summary">
-  <div class="button settings" (click)="copy(item)">
-    <span class="button-text">Duplicate</span>
-  </div>
-</div>
+<app-settings *ngIf="item.edit" [item]="item" [size]="size" [gridItems]="gridItems"></app-settings>
