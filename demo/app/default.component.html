@@ -1,41 +1,43 @@
 <app-svg-icons></app-svg-icons>
-<div class="grid" [ngGrid]="gridConfig">
-  <div *ngFor="let item of gridItems">
-    <div (onResizeStop)="resized = true; size = $event" class="grid-item" [ngGridItem]="item.config">
-      <div class="handle">
-        <span class="close-button">
-          <svg class="close-icon" viewBox="0 0 36 36">
-            <use xlink:href="#closeIcon" />
-          </svg>
-        </span>
-        <div class="overlay close" (click)="remove(item.id)"></div>
-        <span class="title-text">{{item.name}}</span>
-        <span class="settings-button" (click)="item.edit = !item.edit">Settings</span>
-      </div>
-      <div>
-        <div [ngSwitch]="item.name">
-          <app-leader-board [item]="item" [gridItems]="gridItems"
-              [edit]="item.edit" *ngSwitchCase="'Leader Board'"></app-leader-board>
+  <div class="grid" [ngGrid]="gridConfig">
+    <div *ngFor="let item of gridItems">
+      <div (onResizeStop)="resized = true; size = $event" [id]="item.id"
+          class="grid-item" [ngGridItem]="item.config">
+        <div class="handle">
+          <span class="close-button">
+            <svg class="close-icon" viewBox="0 0 36 36">
+              <use xlink:href="#closeIcon" />
+            </svg>
+          </span>
+          <div class="overlay close" (click)="remove(item.id)"></div>
+          <span class="title-text">{{item.name}}</span>
+          <span class="settings-button" (click)="item.edit = !item.edit">Settings</span>
+        </div>
+        <div>
+          <div [ngSwitch]="item.name">
+            <app-leader-board [size]="size" [item]="item" [gridItems]="gridItems"
+                *ngSwitchCase="'Leader Board'"></app-leader-board>
 
-          <app-car-summary [item]="item" [gridItems]="gridItems"
-              [edit]="item.edit" *ngSwitchCase="'Car Summary'"></app-car-summary>
+            <app-car-summary [size]="size" [item]="item" [gridItems]="gridItems"
+                *ngSwitchCase="'Car Summary'"></app-car-summary>
 
-          <app-audio-feed [item]="item" [gridItems]="gridItems"
-              [edit]="item.edit" *ngSwitchCase="'Audio Feed'"></app-audio-feed>
+            <app-audio-feed [size]="size" [item]="item" [gridItems]="gridItems"
+                *ngSwitchCase="'Audio Feed'"></app-audio-feed>
 
-          <app-watch-list [size]="size" [item]="item" [gridItems]="gridItems"
-              [edit]="item.edit" *ngSwitchCase="'Watch List'"></app-watch-list>
+            <app-watch-list [size]="size" [item]="item" [gridItems]="gridItems"
+                *ngSwitchCase="'Watch List'"></app-watch-list>
 
-          <app-pit-events [item]="item" [gridItems]="gridItems"
-              [edit]="item.edit" *ngSwitchCase="'Events'"></app-pit-events>
+            <app-pit-events [size]="size" [item]="item" [gridItems]="gridItems"
+                *ngSwitchCase="'Events'"></app-pit-events>
 
-          <app-lap-graph [resized]="resized" [item]="item" [gridItems]="gridItems"
-              [edit]="item.edit" *ngSwitchCase="'Lap Graph'"></app-lap-graph>
+            <app-lap-graph [size]="size" [resized]="resized" [item]="item" [gridItems]="gridItems"
+                *ngSwitchCase="'Lap Graph'"></app-lap-graph>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 </div>
+
 <div class="button" (click)="add()">
   <span class="button-text">Add Item</span>
 </div>
