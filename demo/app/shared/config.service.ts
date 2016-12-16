@@ -14,6 +14,18 @@ export class ConfigService {
     'col_width': 70,
     'auto_resize': false,
     'row_height': 200,
+    'fix_to_grid': false, // When true the placeholder isn't displayed
+    'limit_to_screen': true,
+    'visable_rows': 4,
+    'maintain_ratio': true
+  };
+
+  public altGridConfig: any = {
+    'margins': [10],
+    'max_rows': 4,
+    'col_width': 70,
+    'auto_resize': false,
+    'row_height': 200,
     'fix_to_grid': true,
     'limit_to_screen': true,
     'visable_rows': 4
@@ -60,7 +72,7 @@ export class ConfigService {
     'dragHandle': '.handle',
     'minWidth': 210,
     'minHeight': 400,
-    'sizex': 8,
+    'sizex': 7,
     'sizey': 2,
     'col': 4
   };
@@ -71,7 +83,7 @@ export class ConfigService {
     'minHeight': 200,
     'sizex': 5,
     'sizey': 2,
-    'col': 12,
+    'col': 11,
     'row': 2
   };
 
@@ -120,5 +132,12 @@ export class ConfigService {
       config: this.audioFeedConfig,
       edit: false
     }
+  ];
+
+  public allDrivers: Array<any> = [
+    { name: 'Austin Dillon' },
+    { name: 'Denny Hamlin' },
+    { name: 'Ryan Blaney' },
+    { name: 'Paul Menard' }
   ];
 }
