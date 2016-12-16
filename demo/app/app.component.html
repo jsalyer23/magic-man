@@ -1,0 +1,328 @@
+<svg width="0" height="0" class="hide">
+  <defs>
+    <!-- Close Icon -->
+    <defs>
+        <circle id="path-1" cx="17.5" cy="17.5" r="17.5"></circle>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="35" height="35" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="closeIcon" stroke-width="1" fill-rule="evenodd">
+        <g id="close">
+            <g id="Close-Btn" transform="translate(0.500000, 0.500000)">
+                <use id="outer-circle" stroke="white" fill="none" mask="url(#mask-2)" stroke-width="4" xlink:href="#path-1"></use>
+                <path d="M16.037764,16.0000765 L8.08321855,16.0000765 L8.08321855,19.1818947 L16.037764,19.1818947 L16.037764,27.1364402 L19.2195822,27.1364402 L19.2195822,19.1818947 L27.1741276,19.1818947 L27.1741276,16.0000765 L19.2195822,16.0000765 L19.2195822,8.04553107 L16.037764,8.04553107 L16.037764,16.0000765 Z" id="Combined-Shape" fill="white" transform="translate(17.628673, 17.590986) rotate(-45.000000) translate(-17.628673, -17.590986) "></path>
+            </g>
+        </g>
+    </g>
+
+    <!-- Play Icon -->
+    <g id="playIcon" stroke="none" stroke-width="1" fill-rule="evenodd">
+        <g>
+            <path d="M18,36 C27.9411255,36 36,27.9411255 36,18 C36,8.0588745 27.9411255,-3.55271368e-15 18,-3.55271368e-15 C8.0588745,-3.55271368e-15 0,8.0588745 0,18 C0,27.9411255 8.0588745,36 18,36 Z M17.9400001,33.0699999 C26.2463627,33.0699999 32.98,26.3363626 32.98,18.03 C32.98,9.72363736 26.2463627,2.99000001 17.9400001,2.99000001 C9.63363744,2.99000001 2.9000001,9.72363736 2.9000001,18.03 C2.9000001,26.3363626 9.63363744,33.0699999 17.9400001,33.0699999 Z M19.0695751,10.9371724 L24.0682206,20.9344634 C24.658162,22.1143462 24.0638329,23.0708303 22.7479227,23.0708303 L13.2548606,23.0708303 C11.9357388,23.0708303 11.3456066,22.1123755 11.9345627,20.9344634 L16.9332082,10.9371724 C17.5231496,9.75728953 18.480619,9.75926025 19.0695751,10.9371724 Z" id="Combined-Shape" transform="translate(18.000000, 18.000000) rotate(-270.000000) translate(-18.000000, -18.000000) "></path>
+        </g>
+    </g>
+
+  </defs>
+</svg>
+
+
+<div class="grid" [ngGrid]="{'max_rows': 5, 'auto_resize': true}">
+
+  <!-- LEADER BOARD -->
+  <div class="grid-item leader-board" [NgGridItem]="leaderBoardConfig">
+  <!-- <div class="grid-item leader-board" [ngGridItem]="{'sizey': 1.55, 'sizex': 1, 'col': 1, 'row': 1}"> -->
+    <div class="inner-container">
+      <div class="handle">
+        <span class="close-button">
+          <svg class="close-icon" viewBox="0 0 36 36">
+            <use xlink:href="#closeIcon" />
+          </svg>
+        </span>
+        <span class="title-text">Leader Board</span>
+        <span class="settings-button">Settings</span>
+      </div>
+      <table>
+        <tr>
+          <th>Pos.</th>
+          <th>Driver</th>
+        </tr>
+        <tr *ngFor="let driver of leaderBoard">
+          <td [ngClass]="{'gray': (driver.pos % 2) === 0}"
+              class="position {{driver.marker}}">{{driver.pos}}</td>
+          <td [ngClass]="{'gray': (driver.pos % 2) === 0}"
+              class="driver {{driver.marker}}">{{driver.carNumber}}&nbsp;&nbsp;{{driver.driverName}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- WATCH LIST -->
+  <div class="grid-item watch-list" [NgGridItem]="watchListConfig">
+  <!-- <div class="grid-item watch-list" [ngGridItem]="{'min_height': 1.40, 'min_width': 1, 'col': 2, 'row': 1}"> -->
+    <div class="inner-container">
+      <div class="handle">
+        <span class="close-button">
+          <svg class="close-icon" viewBox="0 0 36 36">
+            <use xlink:href="#closeIcon" />
+          </svg>
+        </span>
+        <span class="title-text">Watch List</span>
+        <span class="settings-button">Settings</span>
+      </div>
+      <div class="scroller-wrapper" *ngFor="let driver of watchList">
+        <div class="item-container watch-list">
+          <div class="car-number watch-list">
+          </div>
+          <div class="driver-name watch-list">
+            <span>{{driver.name}}</span>
+          </div>
+          <div class="color-marker" [ngClass]="driver.marker">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CAR SUMMARY -->
+  <div class="grid-item car-summary" [ngGridItem]="{'sizey': 1.60, 'sizex': 3, 'row': 1, 'col': 3}">
+    <div class="inner-container">
+      <div class="handle">
+        <span class="close-button">
+          <svg class="close-icon" viewBox="0 0 36 36">
+            <use xlink:href="#closeIcon" />
+          </svg>
+        </span>
+        <span class="title-text">Car Summary</span>
+        <span class="settings-button">Settings</span>
+      </div>
+      <div class="scoller-wrapper">
+        <div class="item-container">
+          <div class="shadow">
+            <table>
+              <thead class="table-head">
+                <tr class="table-row">
+                  <td *ngFor="let title of carSummary">{{title}}</td>
+                </tr>
+              </thead>
+              <tbody class="table-body">
+                <tr class="table-row" *ngFor="let num of [1,2,3,4,5,6,7,8,9,10]">
+                  <td class="table-cell" *ngFor="let data of carSummary">{{data}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EVENTS -->
+  <div class="grid-item events" [ngGridItem]="{'sizey': 1.5, 'sizex': 1, 'col': 1, 'row': 2}">
+    <div class="inner-container">
+      <div class="handle">
+        <span class="close-button">
+          <svg class="close-icon" viewBox="0 0 36 36">
+            <use xlink:href="#closeIcon" />
+          </svg>
+        </span>
+        <span class="title-text">Events</span>
+        <span class="settings-button">Settings</span>
+      </div>
+      <div class="scoller-wrapper" *ngFor="let event of events">
+        <div class="item-container event">
+          <div class="row">
+            <div class="car-number event"></div>
+            <div class="driver-name event">
+              <span>{{event.driver}}</span>
+            </div>
+            <div class="lap">
+              <span>Lap {{event.lap}}</span>
+            </div>
+          </div>
+          <div class="row event">
+            <div class="event">
+              <span class="event-text">{{event.content}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LAP TIME GRAPH -->
+  <div class="grid-item time-graph" [ngGridItem]="{'sizey': 2, 'sizex': 3, 'col': 2, 'row': 2}">
+    <div class="inner-container">
+      <div class="handle">
+        <span class="close-button">
+          <svg class="close-icon" viewBox="0 0 36 36">
+            <use xlink:href="#closeIcon" />
+          </svg>
+        </span>
+        <span class="title-text">Lap Time Graph</span>
+        <span class="settings-button">Settings</span>
+      </div>
+      <div class="scoller-wrapper">
+        <div class="graph-container">
+          <div class="lap-time">
+            <div class="x-axis"></div>
+            <span class="x-axis-text">Lap Time</span>
+          </div>
+          <div class="lap-number">
+            <div class="y-axis"></div>
+            <span class="y-axis-text">Lap Number</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AUDIO FEED -->
+  <div class="grid-item audio-feed" [ngGridItem]="{'sizey': 2, 'sizex': 2, 'col': 5, 'row': 2}">
+    <div class="inner-container">
+      <div class="handle">
+        <span class="close-button">
+          <svg class="close-icon" viewBox="0 0 36 36">
+            <use xlink:href="#closeIcon" />
+          </svg>
+        </span>
+        <span class="title-text">Audio Feed</span>
+        <span class="settings-button">Settings</span>
+      </div>
+      <div class="scoller-wrapper" *ngFor="let utterance of audioFeed">
+        <div class="item-container utterance">
+          <div class="row meta-data">
+            <div class="driver-name utterance">
+              <span>{{utterance.driver}}</span>
+            </div>
+            <div class="lap">
+              <span>Lap&nbsp;{{utterance.lap}}</span>
+            </div>
+            <div class="timestamp">
+              <span>{{utterance.timestamp}}</span>
+            </div>
+            <div class="classification">
+              <span>{{utterance.classification}}</span>
+            </div>
+          </div>
+          <div class="row utterance">
+            <div class="car-number utterance"></div>
+            <span class="utterance-text">{{utterance.transcription}}</span>
+            <span class="play-button">
+              <svg class="play-icon">
+                <use xlink:href="#playIcon" />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- LIBRARY -->
+
+<!-- FOLLOWED DRIVER -->
+<!-- <div class="item-container watch-list">
+  <div class="car-number watch-list">
+  </div>
+  <div class="driver-name watch-list">
+    <span>Austin Dillon</span>
+  </div>
+  <div class="color-marker">
+  </div>
+</div> -->
+
+<!-- EVENT -->
+<!-- <div class="item-container event">
+  <div class="row">
+    <div class="car-number event"></div>
+    <div class="driver-name event">
+      <span>Austin Dillon</span>
+    </div>
+    <div class="lap">
+      <span>Lap 107</span>
+    </div>
+  </div>
+  <div class="row event">
+    <div class="event">
+      <span class="event-text">Problems: Smoking</span>
+    </div>
+  </div>
+</div> -->
+
+<!-- CAR SUMMARY -->
+<!-- <div class="summary-container">
+  <table>
+    <thead>
+      <tr>
+        <td>Pos.</td>
+        <td>Driver Name</td>
+        <td>Delta</td>
+        <td>Last Pit Lap</td>
+        <td>Laps Led</td>
+        <td>Last Lap</td>
+        <td>Fastest Lap</td>
+        <td>Delta Change</td>
+        <td>Indications</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Pos.</td>
+        <td>Driver Name</td>
+        <td>Delta</td>
+        <td>Last Pit Lap</td>
+        <td>Laps Led</td>
+        <td>Last Lap</td>
+        <td>Fastest Lap</td>
+        <td>Delta Change</td>
+        <td>Indications</td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->
+
+<!-- AUDIO UTTERANCE -->
+<!-- <div class="utterance-container">
+  <div class="row">
+
+    <div class="driver-name utterance">
+      <span>Joey Logano</span>
+    </div>
+    <div class="lap">
+      <span>Lap 107</span>
+    </div>
+    <div class="timestamp">
+      <span>16:16:08</span>
+    </div>
+    <div class="classification">
+      <span>#balance_feedback</span>
+    </div>
+  </div>
+  <div class="row utterance">
+    <div class="car-number utterance"></div>
+    <span class="utterance-text">bowman we can go seventy</span>
+    <span class="play-button">
+      <svg class="play-icon">
+        <use xlink:href="#playIcon" />
+      </svg>
+    </span>
+  </div>
+</div> -->
+
+<!-- LAP TIME GRAPH DUMMY -->
+<!-- <div class="graph-container">
+  <div class="lap-time">
+    <div class="x-axis-text">
+      <span class="">Lap Time</span>
+    </div>
+    <div class="x-axis"></div>
+
+  </div>
+  <div class="lap-number">
+    <div class="y-axis"></div>
+    <span class="y-axis-text">Lap Number</span>
+  </div>
+</div> -->

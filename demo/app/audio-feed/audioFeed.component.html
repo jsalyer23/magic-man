@@ -1,0 +1,37 @@
+<div id="audio-feed" class="wrapper audio-feed" *ngIf="!edit">
+  <div id="scroller-audio-feed" class="scroller">
+  <div class="scoller-wrapper" *ngFor="let utterance of audioFeed">
+    <div class="item-container utterance">
+      <div class="row meta-data">
+        <div class="driver-name utterance">
+          <span>{{utterance.driver}}</span>
+        </div>
+        <div class="lap">
+          <span>Lap&nbsp;{{utterance.lap}}</span>
+        </div>
+        <div class="timestamp">
+          <span>{{utterance.timestamp}}</span>
+        </div>
+        <div class="classification">
+          <span>{{utterance.classification}}</span>
+        </div>
+      </div>
+      <div class="row utterance">
+        <div class="car-number utterance"></div>
+        <span class="utterance-text">{{utterance.transcription}}</span>
+        <span class="play-button">
+          <svg class="play-icon">
+            <use xlink:href="#playIcon" />
+          </svg>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div *ngIf="edit" class="edit audio-feed">
+  <div class="button settings" (click)="copy(item)">
+    <span class="button-text">Duplicate</span>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <circle id="path-1" cx="17.5" cy="17.5" r="17.5"></circle>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="35" height="35" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Icons" stroke-width="1" fill-rule="evenodd">
+        <g id="close">
+            <g id="Close-Btn" transform="translate(0.500000, 0.500000)">
+                <use id="outer-circle" stroke="white" fill="none" mask="url(#mask-2)" stroke-width="4" xlink:href="#path-1"></use>
+                <path d="M16.037764,16.0000765 L8.08321855,16.0000765 L8.08321855,19.1818947 L16.037764,19.1818947 L16.037764,27.1364402 L19.2195822,27.1364402 L19.2195822,19.1818947 L27.1741276,19.1818947 L27.1741276,16.0000765 L19.2195822,16.0000765 L19.2195822,8.04553107 L16.037764,8.04553107 L16.037764,16.0000765 Z" id="Combined-Shape" fill="white" transform="translate(17.628673, 17.590986) rotate(-45.000000) translate(-17.628673, -17.590986) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

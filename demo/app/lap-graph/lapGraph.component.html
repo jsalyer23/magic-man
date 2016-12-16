@@ -1,0 +1,30 @@
+<div *ngIf="!edit" class="scoller-wrapper">
+  <div class="graph-container">
+    <chart (load)="saveInstance($event.context)" [options]="options">
+      <xAxis (afterSetExtremes)="zoom($event)"></xAxis>
+      <yAxis (afterSetExtremes)="zoom($event)"></yAxis>
+    </chart>
+  </div>
+</div>
+
+<div *ngIf="edit" class="edit lap-graph wrapper">
+  <div class="scroller">
+    <div class="drivers" *ngFor="let driver of data.lapData">
+      <div (click)="toggle(driver)" [ngClass]="{selected: selectedItems.includes(driver)}" class="item-container settings">
+        <div class="car-number settings">
+        </div>
+        <div class="driver-name settings">
+          <span>{{driver.name}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="button settings" [ngClass]="{disabled: maxItems()}" (click)="copy(item)">
+        <span class="button-text">Duplicate</span>
+      </div>
+      <div class="button settings" [ngClass]="{disabled: selectedItems.length === 0}" (click)="updateGraph()">
+        <span class="button-text">Save</span>
+      </div>
+    </div>
+  </div>
+</div>

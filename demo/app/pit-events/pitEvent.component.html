@@ -1,0 +1,28 @@
+<div id="pit-events" class="wrapper" *ngIf="!edit">
+  <div id="scroller-pit-events" class="scroller">
+  <div class="scoller-wrapper" *ngFor="let event of pitEvents">
+    <div class="item-container event">
+      <div class="row">
+        <div class="car-number event"></div>
+        <div class="driver-name event">
+          <span>{{event.driver}}</span>
+        </div>
+        <div class="lap">
+          <span>Lap {{event.lap}}</span>
+        </div>
+      </div>
+      <div class="row event">
+        <div class="event">
+          <span class="event-text">{{event.content}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div *ngIf="edit" class="edit pit-events">
+  <div class="button settings" (click)="copy(item)">
+    <span class="button-text">Duplicate</span>
+  </div>
+</div>
