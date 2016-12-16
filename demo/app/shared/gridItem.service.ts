@@ -10,9 +10,11 @@ export class GridItemService {
   @Input() gridItems: Array<any>;
   @Input() resized: boolean;
   @Input() size: any;
+  public allDrivers: Array<any>;
   public selectedItems: Array<any> = [];
 
   constructor(public config: ConfigService) {
+    this.allDrivers = this.config.allDrivers;
   }
 
   // Add a new grid item with default configuration
@@ -57,5 +59,9 @@ export class GridItemService {
 
   maxItems(): boolean {
     return (this.gridItems.length >= 9);
+  }
+
+  getHeight(selector: string): number {
+    return document.getElementById(selector).offsetHeight;
   }
 }
