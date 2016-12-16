@@ -11,6 +11,7 @@ import { WatchListModule } from './watch-list/watchList.module';
 import { PitEventModule } from './pit-events/pitEvent.module';
 import { LapGraphModule } from './lap-graph/lapGraph.module';
 import { ChartModule } from 'angular2-highcharts';
+import { SettingsModule } from './settings/settings.module';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { ChartModule } from 'angular2-highcharts';
     WatchListModule,
     PitEventModule,
     LapGraphModule,
-    ChartModule
+    ChartModule,
+    SettingsModule
   ],
   declarations: [ AppComponent ],
   providers: [],
