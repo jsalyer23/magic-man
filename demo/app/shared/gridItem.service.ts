@@ -47,10 +47,6 @@ export class GridItemService {
     }
   }
 
-  log(): void {
-    console.log(this.size):
-  }
-
   update(item: any): void {
     item = this.selectedItems;
     this.selectedItems = [];
