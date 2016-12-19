@@ -58,10 +58,10 @@ export class LapGraphComponent extends GridItemService implements OnInit {
     this.maxX = event.context.max;
   }
 
-  updateGraph(): void {
+  updateGraph(item: any): void {
     if (this.selectedItems.length === 0) { return; }
     this.options.series = this.selectedItems;
     this.selectedItems = [];
-    this.edit = false;
+    item.edit = false;
   }
 }
