@@ -7,6 +7,10 @@ body {
 	box-sizing: border-box;
 }
 
+chart {
+	height: 100%;
+}
+
 /* NG GRID STYLES */
 .grid {
 	background-color: white;
@@ -60,6 +64,14 @@ body {
   height: auto;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
+}
+
+.scroller.audio-feed {
+	overflow-x: hidden;
+}
+
+.margin-bottom-50 {
+	margin-bottom: 50px;
 }
 
 /* BUTTONS */
