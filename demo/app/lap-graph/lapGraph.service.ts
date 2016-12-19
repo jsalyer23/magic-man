@@ -4,10 +4,6 @@ import { Injectable } from '@angular/core';
 
 export class LapGraphService {
 
-  public driverNames: Array<string> = [
-    'Joey Logano', 'Austin Dillon', 'Ryan Blaney'
-  ];
-
   public lapData: Array<any> = [
     {
       id: 1,
