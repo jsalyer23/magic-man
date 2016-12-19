@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { LapGraphService } from './lapGraph.service';
 import { GridItemService } from '../shared/gridItem.service';
 import { ConfigService } from '../shared/config.service';
-import { SelectionComponent } from '../shared/selection.component';
 import * as Highcharts from 'highcharts';
 
 
@@ -59,10 +58,10 @@ export class LapGraphComponent extends GridItemService implements OnInit {
     this.maxX = event.context.max;
   }
 
-  updateGraph(): void {
+  updateGraph(item: any): void {
     if (this.selectedItems.length === 0) { return; }
     this.options.series = this.selectedItems;
     this.selectedItems = [];
-    this.edit = false;
+    item.edit = false;
   }
 }
