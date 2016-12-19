@@ -12,23 +12,13 @@ export class ConfigService {
     'margins': [10],
     'max_cols': 16,
     'col_width': 70,
-    'auto_resize': false,
+    'auto_resize': false, // Resizes the grid items to fill the screen when true
+                          // but also messes up resizing of GridItems
     'row_height': 200,
     'fix_to_grid': false, // When true the placeholder isn't displayed
     'limit_to_screen': true,
     'visable_rows': 4,
     'maintain_ratio': true
-  };
-
-  public altGridConfig: any = {
-    'margins': [10],
-    'max_rows': 4,
-    'col_width': 70,
-    'auto_resize': false,
-    'row_height': 200,
-    'fix_to_grid': true,
-    'limit_to_screen': true,
-    'visable_rows': 4
   };
 
   public leaderBoardConfig: any = {
@@ -140,4 +130,5 @@ export class ConfigService {
     { name: 'Ryan Blaney' },
     { name: 'Paul Menard' }
   ];
+
 }
