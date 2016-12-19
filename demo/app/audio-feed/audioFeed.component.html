@@ -1,6 +1,6 @@
-<div id="audio-feed" class="wrapper audio-feed" *ngIf="!item.edit">
-  <div id="scroller-audio-feed" class="scroller">
-  <div class="scoller-wrapper" *ngFor="let utterance of audioFeed">
+<div class="wrapper audio-feed" *ngIf="!item.edit">
+  <div class="scroller audio-feed">
+  <div *ngFor="let utterance of audioFeed">
     <div class="item-container utterance">
       <div class="row meta-data">
         <div class="driver-name utterance">
