@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { LapGraphService } from './lapGraph.service';
 import { GridItemService } from '../shared/gridItem.service';
 import { ConfigService } from '../shared/config.service';
-import { SelectionComponent } from '../shared/selection.component';
 import * as Highcharts from 'highcharts';
 
 
