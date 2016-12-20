@@ -42,14 +42,14 @@ export class LapGraphComponent extends GridItemService implements OnInit {
 
   saveInstance(chartInstance: any): void {
     this.chart = chartInstance;
-    setInterval(() => {
-      this.chart.reflow();
-    }, 500);
+    this.refresh();
   }
 
   // Refreshes chart so it fills the container
-  refresh(resized: boolean): void {
-    if (resized) this.chart.reflow();
+  refresh(): void {
+    setInterval(() => {
+      this.chart.reflow();
+    }, 500);
   }
 
   // Well.... it zooms in
@@ -59,7 +59,7 @@ export class LapGraphComponent extends GridItemService implements OnInit {
   }
 
   updateGraph(item: any): void {
-    if (this.selectedItems.length === 0) { return; }
+    if (this.selectedItems.length === 0) return;
     this.options.series = this.selectedItems;
     this.selectedItems = [];
     item.edit = false;

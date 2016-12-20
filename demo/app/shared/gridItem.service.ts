@@ -5,7 +5,6 @@ import { ConfigService } from './config.service';
 
 export class GridItemService {
 
-  @Input() edit: boolean;
   @Input() item: any;
   @Input() gridItems: Array<any>;
   @Input() resized: boolean;
@@ -40,11 +39,7 @@ export class GridItemService {
 
   toggle(item: any): void {
     let index: number = this.selectedItems.indexOf(item);
-    if (index === -1) {
-      this.selectedItems.push(item);
-    } else {
-      this.selectedItems.splice(index, 1);
-    }
+    (index === -1) ? this.selectedItems.push(item) : this.selectedItems.splice(index, 1);
   }
 
   update(item: any): void {
