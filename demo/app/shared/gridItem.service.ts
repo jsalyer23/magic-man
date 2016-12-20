@@ -32,8 +32,8 @@ export class GridItemService {
     this.gridItems.push(copy);
   }
 
-  remove(id: number): void {
-    let index: number = ((id - 1) === this.gridItems.length) ? id - 2 : id - 1;
+  remove(item: any): void {
+    let index: number = this.gridItems.indexOf(item);
     if (this.gridItems[index]) this.gridItems.splice(index, 1);
   }
 
